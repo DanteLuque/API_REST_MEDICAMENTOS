@@ -127,7 +127,7 @@ class MedicineController extends BaseController {
 
     async getByType(req, res) {
         try {
-            const { tipo } = req.query; // Ej: /medicines?tipo=Analgésico
+            const { tipo } = req.query;
             const medicines = await Medicine.getByType(this.getDbPool(), tipo);
             res.json(medicines);
         } catch (error) {
