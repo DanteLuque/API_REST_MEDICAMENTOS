@@ -103,7 +103,7 @@ async function seedDatabase() {
     try {
         const pool = db.getPool();
 
-        await pool.query("DELETE FROM MEDICAMENTOS WHERE deleted_at IS NULL");
+        await pool.query("DELETE FROM MEDICAMENTOS");
 
         for (const medicine of medicines) {
             const now = new Date();
