@@ -1,10 +1,12 @@
 import express from 'express';
 import db from './config/mysql/mysql.js';
+import MedicineRouter from './modules/medicines/routes/medicine.route.js';
 
 class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
+        this.medicine_path = '/api/v1/medicine';
 
         this.connectDB();
         this.middlewares();
@@ -26,6 +28,7 @@ class Server {
     }
 
     routes() {
+        this.app.use(this.medicine_path, MedicineRouter);
     }
 }
 
